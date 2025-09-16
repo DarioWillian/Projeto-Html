@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --cor-texto: white;
+  --bg-url: url(./assets/imagen_escura_copia.jpg);
+  --srtoke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --switch-bg-url: url(./assets/lua.svg);
+  --switch-size: 95%;
+}
+.claro {
+  --cor-texto: black;
+  --bg-url: url(./assets/imagen\ clara.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.05);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --switch-bg-url: url(./assets/sol.svg);
+  --switch-size: 150%;
+}
+body {
+  background-image: var(--bg-url);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--cor-texto);
+}
+#conteiner {
+  width: 1000px;
+  margin: 60px auto 0px;
+  padding: 0 24px;
+}
+#perfil {
+  padding: 24px;
+}
+#perfil img {
+  display: block;
+  height: 450px;
+  margin: auto;
+}
+#controle {
+  width: 130px;
+
+  margin: 6px auto;
+  position: relative;
+}
+#controle button {
+  left: 0;
+  top: 50%;
+  width: 70px; /* largura */
+  height: 70px; /* Altura */
+  border: none; /* sem nenhuma borda */
+  border-radius: 50%; /*arredondar o icone  */
+  background-color: white; /* fundo sempre branco */
+  background-image: var(--switch-bg-url);
+  background-repeat: no-repeat; /*imagem nao se repete */
+  background-position: center; /* mantem a mesma no centro*/
+  background-size: 50%; /* controla o tamanho do ícone */
+  cursor: pointer; /*o cursor muda quando eu coloco encima do icone */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-size: var(--switch-size);
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%);
+  transition: left 0.3s, right 0.3s;
+}
+.claro #controle button {
+  right: 0;
+  left: auto;
+}
+.escuro #controle button {
+  left: auto;
+  right: 0;
+}
+#controle span {
+  display: block;
+  width: 130px;
+  height: 50px;
+  background: var(--surface-color);
+  border: 1px solid var(--srtoke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur (4px);
+  border-radius: 9999px;
+  position: relative;
+}
+.claro #controle button {
+  background-size: 200%; /* aumenta apenas o sol */
+  justify-content: center;
+}
+#nome {
+  text-align: center;
+  font-size: 35px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+#foto {
+  border-radius: 50px;
+}
+
+/* links */
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  padding: 60px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 40px;
+  height: 100px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--srtoke-color);
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.3s;
+}
+/* alterar os componentes quendo eu passo o mouse encima */
+ul li a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--cor-texto);
+}
+#links-sociais {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 60px;
+}
+#links-sociais ion-icon {
+  font-size: 100px;
+  color: var(--cor-texto);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#links-sociais ion-icon:hover {
+  transform: scale(1.2);
+}
